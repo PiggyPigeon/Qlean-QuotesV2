@@ -125,6 +125,12 @@
                 <h1 class="address-title">Billing Address</h1>
             </div>
             <div class="form-group">
+
+                <label>Same as Service Address
+                    <input type="checkbox" id="sameAddressCheckbox">
+                </label>
+
+
                 <label>Address Line 1
                     <input class="form-control" th:field="${paymentFormDTO.billingAddressLine1}"
                            placeholder="Address Line 1"/>
@@ -178,6 +184,39 @@
         ©2023 Qlean Quotes. All Rights Reserved.
     </footer>
 </div>
+
+
+
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+        const sameAddressCheckbox = document.getElementById('sameAddressCheckbox');
+        const billingAddressLine1 = document.getElementById('billingAddressLine1');
+        const billingAddressLine2 = document.getElementById('billingAddressLine2');
+        const billingLocality = document.getElementById('billingLocality');
+        const billingAdministrativeDistrictLevel1 = document.getElementById('billingAdministrativeDistrictLevel1');
+        const billingPostalCode = document.getElementById('billingPostalCode');
+
+        sameAddressCheckbox.addEventListener('change', function () {
+            if (sameAddressCheckbox.checked) {
+                billingAddressLine1.value = document.getElementById('shippingAddressLine1').value;
+                billingAddressLine2.value = document.getElementById('shippingAddressLine2').value;
+                billingLocality.value = document.getElementById('shippingLocality').value;
+                billingAdministrativeDistrictLevel1.value = document.getElementById('shippingAdministrativeDistrictLevel1').value;
+                billingPostalCode.value = document.getElementById('shippingPostalCode').value;
+            } else {
+                billingAddressLine1.value = '';
+                billingAddressLine2.value = '';
+                billingLocality.value = '';
+                billingAdministrativeDistrictLevel1.value = '';
+                billingPostalCode.value = '';
+            }
+        });
+    });
+</script>
+
+
+
+
 
 
 <script type="text/javascript" src="https://sandbox.web.squarecdn.com/v1/square.js"></script>

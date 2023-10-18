@@ -5,8 +5,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import org.launchcode.qleanquotes.models.enums.CleaningOption;
 
-
-//TODO there needs to be persistence annotations in this model for the databases tables to relate to each other (foreign key! think @manytoone, @onetomany, blah blah)
 @Entity
 public class Quote extends AbstractEntity {
 
@@ -27,7 +25,6 @@ public class Quote extends AbstractEntity {
     private double totalCost;
     private String formattedTotalCost;
 
-
     public Quote() {
     }
 
@@ -41,7 +38,6 @@ public class Quote extends AbstractEntity {
         this.totalCharge = totalCharge;
         this.totalCost = totalCost;
         this.formattedTotalCost = formattedTotalCost;
-
     }
 
     public Integer getSquareFeet() {

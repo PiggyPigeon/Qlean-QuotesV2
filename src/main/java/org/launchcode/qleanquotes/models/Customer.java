@@ -44,7 +44,7 @@ public class Customer extends AbstractEntity implements UserDetails {
 //    Lob indicates that the images should be stored as a large image in the database
 //    LAZY means this data us not loaded everytime customer data is retrieved
     @Lob @Basic(fetch=LAZY)
-    @Column(columnDefinition="BLOB NOT NULL")
+    @Column(columnDefinition="BLOB")
     protected byte[] profileImage;
 
     //below BCrypt class is provided by the spring-security-crypto dependency. It hashes the passwords for us.
